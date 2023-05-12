@@ -1,6 +1,6 @@
 module.exports = {
     
-    url:"mongodb://127.0.0.1:27017/tiffin-box",
+    url:"mongodb+srv://vercel-admin-user:Password0297@bhojanbox.aeqedgf.mongodb.net/",
     gmailUser: 'tanishk0297@gmail.com',
     gmailPassword: 'vyvdoszdwqptgkoq',
     appUrl: 'http://localhost:3000',
