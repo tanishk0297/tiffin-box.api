@@ -48,7 +48,7 @@ require("./route/booking.route.js")(app);
 // //   });
 
 // simple route
-app.get("/", (req, res) => {
+app.get("/welcome", (req, res) => {
   res.send("Welcome To Tanishk's Api");
 });
 
