@@ -46,8 +46,10 @@ exports.create = async (req, res) => {
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
           console.log(error);
+          reject(err);
         } else {
           console.log('Email sent: ' + info.response);
+          resolve(info);
         }
       });
     });
