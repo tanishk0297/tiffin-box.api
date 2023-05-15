@@ -24,7 +24,7 @@ exports.create = async (req, res) => {
   // Save User in the database
   user
     .save()
-    .then(data => {
+    .then(async (data) => {
 
 
       var transporter = nodemailer.createTransport({
@@ -41,6 +41,7 @@ exports.create = async (req, res) => {
         subject: 'Activate your Account',
         html: '<a href="' + dbConfig.appUrl + '/activate?key=' + activationKey + '">Click here to activate </a>'
       };
+      await new Promise((resolve, reject) => {
 
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
@@ -49,6 +50,7 @@ exports.create = async (req, res) => {
           console.log('Email sent: ' + info.response);
         }
       });
+    });
       res.send(data);
     })
     .catch(err => {
