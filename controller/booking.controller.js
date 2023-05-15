@@ -12,11 +12,9 @@ exports.create = async (req, res) => {
      
      // Create a Tutorial
     const booking = new Booking({
-        Name: req.body.Area,
-        Email: req.body.Duration,
-        Number: req.body.Packages,
-        Subject: req.body.Packages,
-        Message: req.body.Packages,
+        Area: req.body.Area,
+        Duration: req.body.Duration,
+        Packages: req.body.Packages, 
         ContactedBy: myObject.UserId,
     });
 
