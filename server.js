@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "https://tiffin-box.vercel.app"
+  origin: "*"
 };
 
 app.use(cors(corsOptions));

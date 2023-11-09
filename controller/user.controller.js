@@ -28,9 +28,7 @@ exports.create = async (req, res) => {
 
 
       var transporter = nodemailer.createTransport({
-        host: "smtp.forwardemail.net",
-        port: 465,
-        secure: true,
+       service:'gmail',
         auth: {
           user: dbConfig.gmailUser,
           pass: dbConfig.gmailPassword
@@ -48,7 +46,7 @@ exports.create = async (req, res) => {
       transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
           console.log(error);
-          reject(err);
+          reject(error);
         } else {
           console.log('Email sent: ' + info.response);
           resolve(info);
@@ -70,6 +68,7 @@ exports.EMailIdExists = (req, res) => {
 
   User.find({ email: req.body.EMailId })
     .then(data => {
+      console.log(data)
       res.send(data.length > 0 ? true : false);
     })
     .catch(err => {
