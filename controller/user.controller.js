@@ -28,7 +28,9 @@ exports.create = async (req, res) => {
 
 
       var transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: "smtp.forwardemail.net",
+        port: 465,
+        secure: true,
         auth: {
           user: dbConfig.gmailUser,
           pass: dbConfig.gmailPassword
